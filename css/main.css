@@ -1,0 +1,212 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html,
+body {
+  font-size: 20px;
+  font-family: "Calibri", "Gill Sans MT", "Trebuchet MS", sans-serif;
+  height: 100%; }
+
+.main-header {
+  background-color: #030011;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+  @media (min-width: 370px) and (max-width: 759px) {
+    .main-header {
+      height: 15vh;
+      flex-direction: column;
+      justify-content: space-around; } }
+  @media (min-width: 370px) and (max-width: 759px) and (orientation: landscape) {
+    .main-header {
+      background-color: black;
+      padding: 2rem 0;
+      flex-direction: row;
+      justify-content: space-evenly; } }
+  @media (min-width: 760px) and (max-width: 1023px) {
+    .main-header {
+      height: 12vh;
+      flex-direction: row;
+      justify-content: space-evenly; } }
+  .main-header a {
+    text-decoration: none;
+    margin-left: 15%; }
+    @media (min-width: 370px) and (max-width: 759px) {
+      .main-header a {
+        margin: 0 auto; } }
+    @media (min-width: 370px) and (max-width: 759px) and (orientation: landscape) {
+      .main-header a {
+        width: 50%;
+        margin-left: 10%; } }
+    @media (min-width: 760px) and (max-width: 1023px) {
+      .main-header a {
+        width: 40%; } }
+    .main-header a h1 {
+      font-size: 1rem;
+      color: #fff; }
+      @media (min-width: 370px) and (max-width: 759px) {
+        .main-header a h1 {
+          font-size: 1.5rem; } }
+      @media (min-width: 760px) and (max-width: 1023px) {
+        .main-header a h1 {
+          font-size: 1.5rem; } }
+      .main-header a h1:hover {
+        color: #5050ff;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        transition: 0.3s; }
+  .main-header .show-search {
+    position: relative;
+    margin-right: 17%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    @media (min-width: 370px) and (max-width: 759px) {
+      .main-header .show-search {
+        margin: 0 auto; } }
+    @media (min-width: 760px) and (max-width: 1023px) {
+      .main-header .show-search {
+        margin: 0 auto; } }
+    .main-header .show-search #search {
+      font-size: 1rem;
+      line-height: 1.2rem;
+      padding-left: 1rem; }
+    .main-header .show-search::placeholder {
+      color: #b9b9b9; }
+    .main-header .show-search #result {
+      position: absolute;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      list-style: none;
+      margin-top: 1.5rem;
+      border: 1px solid #b9b9b9;
+      display: none;
+      z-index: 9999;
+      overflow: auto; }
+      .main-header .show-search #result li {
+        line-height: 1.2rem;
+        color: #5050ff;
+        background-color: #fff;
+        padding-left: 1rem;
+        border-radius: 2px;
+        width: 100%; }
+        @media (min-width: 370px) and (max-width: 759px) {
+          .main-header .show-search #result li {
+            font-size: 1.5rem;
+            line-height: 1.7rem; } }
+        @media (min-width: 760px) and (max-width: 1023px) {
+          .main-header .show-search #result li {
+            font-size: 1.5rem;
+            line-height: 1.7rem; } }
+        .main-header .show-search #result li:hover {
+          background-color: lightgray;
+          color: black;
+          cursor: pointer;
+          -webkit-transition: 0.3s;
+          -moz-transition: 0.3s;
+          transition: 0.3s; }
+
+.main-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #030011;
+  color: #fff;
+  font-size: 0.66rem;
+  padding: 1rem 0; }
+  .main-footer p {
+    text-align: center; }
+
+.container {
+  width: 100%; }
+
+main {
+  width: 70%;
+  margin: 6vh auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2rem; }
+  @media (min-width: 370px) and (max-width: 759px) {
+    main {
+      padding-top: 0;
+      width: 90%;
+      margin-top: 16vh; } }
+  @media (min-width: 370px) and (max-width: 759px) and (orientation: landscape) {
+    main {
+      padding-top: 1rem;
+      width: 90%;
+      margin-top: 16vh;
+      padding-top: 2rem; } }
+  @media (min-width: 760px) and (max-width: 1023px) {
+    main {
+      width: 90%;
+      padding-top: 10vh; } }
+  main h2 {
+    text-align: center; }
+  main .show-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: top; }
+    main .show-wrapper .result-top-50 {
+      width: 30%;
+      margin: 1rem 1.6%;
+      border: 1px solid #b9b9b9;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer; }
+      @media (min-width: 370px) and (max-width: 759px) {
+        main .show-wrapper .result-top-50 {
+          width: 46.8%;
+          justify-content: space-between; } }
+      main .show-wrapper .result-top-50:hover {
+        box-shadow: 9px 7px 21px -7px rgba(80, 80, 255, 0.75);
+        -webkit-box-shadow: 9px 7px 21px -7px rgba(80, 80, 255, 0.75);
+        -moz-box-shadow: 9px 7px 21px -7px rgba(80, 80, 255, 0.75);
+        -webkit-transition: box-shadow;
+        -moz-transition: box-shadow;
+        transition: box-shadow;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        transition: 0.3s; }
+      main .show-wrapper .result-top-50 h3 {
+        padding: 0.5rem 0 1rem 0;
+        text-align: center;
+        color: black;
+        font-size: 1rem; }
+        main .show-wrapper .result-top-50 h3:hover {
+          color: #5050ff;
+          -webkit-transition: 0.3s;
+          -moz-transition: 0.3s;
+          transition: 0.3s; }
+      main .show-wrapper .result-top-50 img {
+        width: 100%; }
+
+.show {
+  display: block !important;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  transition: 0.3s; }
+
+.main-footer {
+  position: relative; }
+
+/*# sourceMappingURL=main.css.map */

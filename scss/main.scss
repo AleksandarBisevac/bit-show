@@ -1,0 +1,95 @@
+@import "partials/variables";
+@import "partials/mixins";
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  font-size: 20px;
+  font-family: "Calibri", "Gill Sans MT", "Trebuchet MS", sans-serif;
+  height: 100%;
+}
+
+@import "partials/main-header";
+@import "partials/main-footer";
+.container {
+  width: 100%;
+}
+main {
+  width: 70%;
+  margin: 6vh auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 2rem;
+  @include phone {
+    padding-top: 0;
+    width: 90%;
+    margin-top: 16vh;
+  }
+  @include phone-landscape {
+    padding-top: 1rem;
+    width: 90%;
+    margin-top: 16vh;
+    padding-top: 2rem;
+  }
+
+  @include tablet {
+    width: 90%;
+    padding-top: 10vh;
+  }
+  h2 {
+    text-align: center;
+  }
+  .show-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: top;
+    .result-top-50 {
+      width: 30%;
+      margin: 1rem 1.6%;
+      border: 1px solid $greyColor;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      @include phone {
+        width: 46.8%;
+        justify-content: space-between;
+      }
+      &:hover {
+        box-shadow: 9px 7px 21px -7px rgba(80, 80, 255, 0.75);
+        -webkit-box-shadow: 9px 7px 21px -7px rgba(80, 80, 255, 0.75);
+        -moz-box-shadow: 9px 7px 21px -7px rgba(80, 80, 255, 0.75);
+        @include transition-property(box-shadow);
+        @include transition-duration(0.3s);
+      }
+      h3 {
+        padding: 0.5rem 0 1rem 0;
+        text-align: center;
+        color: black;
+        font-size: 1rem;
+        &:hover {
+          color: $blueColor;
+          @include transition-duration(0.3s);
+        }
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+.show {
+  display: block !important;
+  @include transition-duration(0.3s);
+}
+.main-footer {
+  position: relative;
+}
