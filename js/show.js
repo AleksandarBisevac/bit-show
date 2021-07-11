@@ -11,7 +11,7 @@ let input = document.querySelector("#search");
 let resultUl = document.querySelector("#result");
 let inputValue;
 showReq = new XMLHttpRequest();
-showReq.open("GET", `http://api.tvmaze.com/shows/${showId}`);
+showReq.open("GET", `https://api.tvmaze.com/shows/${showId}`);
 showReq.onload = () => {
   if (showReq.status === 200) {
     let showReqResponse = showReq.responseText;
@@ -26,7 +26,10 @@ showReq.onload = () => {
     `;
     showDetails.innerHTML = `<h3>Show Details</h3>${showObj.summary}`;
     let seasonsReq = new XMLHttpRequest();
-    seasonsReq.open("GET", `http://api.tvmaze.com/shows/${showObj.id}/seasons`);
+    seasonsReq.open(
+      "GET",
+      `https://api.tvmaze.com/shows/${showObj.id}/seasons`
+    );
     seasonsReq.onload = () => {
       if (seasonsReq.status === 200) {
         let seasonsReqResponse = seasonsReq.responseText;
@@ -49,7 +52,7 @@ showReq.onload = () => {
     };
     seasonsReq.send();
     let castReq = new XMLHttpRequest();
-    castReq.open("GET", `http://api.tvmaze.com/shows/${showObj.id}/cast`);
+    castReq.open("GET", `https://api.tvmaze.com/shows/${showObj.id}/cast`);
     castReq.onload = () => {
       if (castReq.status === 200) {
         let castReqResponse = castReq.responseText;
@@ -79,7 +82,7 @@ showReq.onload = () => {
       resultUl.innerHTML = "";
       searchReq.open(
         "GET",
-        `http://api.tvmaze.com/search/shows?q=${input.value}`
+        `https://api.tvmaze.com/search/shows?q=${input.value}`
       );
       searchReq.onload = () => {
         if (searchReq.status === 200) {
