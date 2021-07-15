@@ -1,3 +1,5 @@
+import { dateFormat } from "./modules/validation_functions.js";
+
 let showId = localStorage.getItem("id");
 let showNameH2 = document.querySelector("#showName");
 let showImg = document.querySelector(".img-handler");
@@ -9,8 +11,8 @@ let showCastH3 = document.querySelector(".cast h3");
 let showDetails = document.querySelector(".details");
 let input = document.querySelector("#search");
 let resultUl = document.querySelector("#result");
-let inputValue;
-showReq = new XMLHttpRequest();
+
+const showReq = new XMLHttpRequest();
 showReq.open("GET", `https://api.tvmaze.com/shows/${showId}`);
 showReq.onload = () => {
   if (showReq.status === 200) {
@@ -22,7 +24,7 @@ showReq.onload = () => {
      */
     showNameH2.textContent = `${showObj.name}`;
     showImg.innerHTML = `
-    <img src="${showObj.image.original}" alt="${showObj.name} image">
+  <img src="${showObj.image.original}" alt="${showObj.name} image">
     `;
     showDetails.innerHTML = `<h3>Show Details</h3>${showObj.summary}`;
     let seasonsReq = new XMLHttpRequest();
@@ -33,8 +35,7 @@ showReq.onload = () => {
     seasonsReq.onload = () => {
       if (seasonsReq.status === 200) {
         let seasonsReqResponse = seasonsReq.responseText;
-        let seasonsObj = JSON.parse(seasonsReqResponse);
-        console.log(seasonsObj);
+        const seasonsObj = JSON.parse(seasonsReqResponse);
         showSeasonsH3.textContent = `Seasons (${seasonsObj.length})`;
         seasonsObj.forEach((element) => {
           let seasonLi = document.createElement("li");
@@ -56,7 +57,7 @@ showReq.onload = () => {
     castReq.onload = () => {
       if (castReq.status === 200) {
         let castReqResponse = castReq.responseText;
-        let castObj = JSON.parse(castReqResponse);
+        const castObj = JSON.parse(castReqResponse);
         showCastH3.textContent = `Cast`;
         let counter = 0;
         castObj.forEach((element) => {
@@ -87,7 +88,7 @@ showReq.onload = () => {
       searchReq.onload = () => {
         if (searchReq.status === 200) {
           let searchReqResponse = searchReq.responseText;
-          let searchArr = JSON.parse(searchReqResponse);
+          const searchArr = JSON.parse(searchReqResponse);
           console.log(searchArr);
           searchArr.forEach((element) => {
             let resultLi = document.createElement("li");
@@ -107,9 +108,5 @@ showReq.onload = () => {
       resultUl.classList.remove("show");
     }
   });
-
-  /*
-   * Potreban je novi zahtev za prikazivanje sezona
-   */
 };
 showReq.send();
