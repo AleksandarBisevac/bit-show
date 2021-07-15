@@ -1,3 +1,9 @@
+import {
+  createProgram,
+  createShow,
+} from "./modules/object_create_functions.js";
+import { compareStrings, searchShow } from "./modules/helper_functions.js";
+
 let input = document.querySelector("#search");
 let showWrapper = document.querySelector(".show-wrapper");
 let localStorage = window.localStorage;
@@ -12,7 +18,7 @@ showReq.onload = () => {
   if (showReq.status === 200) {
     inputValue = input.value;
     let response = showReq.responseText;
-    allShows = JSON.parse(response);
+    let allShows = JSON.parse(response);
     console.log(allShows);
     allShows.forEach((element) => {
       //id, name, rating, image, summary, premiered, site, genre
